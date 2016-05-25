@@ -50,13 +50,13 @@
           <input type="number" value="" id="gs" name="gs" placeholder="g/s" />
           <input type="number" value="" id="rpm" name="rpm" placeholder="RPM" />
           <input type="number" value="" id="lt" name="lt" placeholder="Litres" />
-          <button onclick="calculate();">Calculate VE</button>
+          <button onclick="calculate();">Calculate</button>
         </div>
         
         <div id="ve"><span></span></div>
         
         <div class="bottom">
-          <p>Built by OPC</p>
+          <p><a href="#" onclick="window.open('http://opc.com.au', '_system');">Developed by OPC... Leave IT to US</a></p>
         </div>
         
     </div>
@@ -72,14 +72,20 @@
           rpm = $('#rpm').val();
           lt = $('#lt').val();
           
-          topvalue = (parseInt(grams) / 1.204);
-          topvalue = topvalue * 60;
-          bottomvalue = (parseInt(rpm) / 2)*parseInt(lt);
+          if(grams == "" || rpm == "" || lt == ""){
           
-          var finaltotal = topvalue / bottomvalue;
+          } else {
+            
+            topvalue = (parseInt(grams) / 1.204);
+            topvalue = topvalue * 60;
+            bottomvalue = (parseInt(rpm) / 2)*parseInt(lt);
+            
+            var finaltotal = topvalue / bottomvalue;
 
-          $('#ve span').html(finaltotal.toFixed(2));
-          $('#ve span').addClass('calc');
+            $('#ve span').html(finaltotal.toFixed(2));
+            $('#ve span').addClass('calc');
+            
+          }
           
         };
         
